@@ -6,6 +6,7 @@ var gulp = require('gulp'),
   concat = require('gulp-concat'),
   uglify = require('gulp-uglifyjs'),
   rename = require('gulp-rename'),
+  cache = require('gulp-cache'),
   jshint = require('gulp-jshint');
 
 gulp.task('default', ['watch']);
@@ -38,6 +39,7 @@ gulp.task('minify-script', ['main-script'], function() {
     .pipe(uglify())
     .pipe(rename({ suffix: '.min' }))
     .pipe(maps.write('../'))
+    .pipe(cache.clear())
     .pipe(gulp.dest('../js'));
 });
 
@@ -51,7 +53,7 @@ gulp.task('sass', function() {
 });
 
 gulp.task('watch', [ 'browser-sync', 'minify-script', 'main-script'] , function() {
-  gulp.watch('../_src_js/*.js', ['jshint']);
+  gulp.watch('../_src_js/*.js', ['jshint']).on('change', browserSync.reload);
   gulp.watch('../_components/**/*.scss', ['sass']);
   gulp.watch("../*.html").on('change', browserSync.reload);
 });
