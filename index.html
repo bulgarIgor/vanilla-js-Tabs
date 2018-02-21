@@ -11,26 +11,72 @@
 <body>
 <div class="tabs__container">
   <section class="tabs__container--inner">
-    <ul class="nav tabs__nav">
-      <li class="tabs__nav-item active"><a href="#tab-1">Tab 1</a></li>
-      <li class="tabs__nav-item"><a href="#tab-2">Tab 2</a></li>
-    </ul>
-    <div class="tab__body">
-      <div id="tab-1" class="tab__body-item active">
-        <span class="glyphicon glyphicon-leaf glyphicon--home--feature two columns text-center"></span>
-        <span class="col-md-10">
-					<h3>Feature 1</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-				</span>
-      </div>
-      <div id="tab-2" class="tab__body-item">
-        <span class="col-md-10">
-					<h3>Feature 2</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-				</span>
-      </div>
+    <div class="tabs--title">
+      <h1>
+        Please select one font
+      </h1>
     </div>
+    <ul class="nav tabs__nav">
+      <li class="tabs__nav-item"><a href="#tab-1">My Fonts</a></li>
+      <li class="tabs__nav-item active"><a href="#tab-2">Buy Fonts</a></li>
+    </ul>
   </section>
+  <div class="tab__body">
+    <div id="tab-1" class="tab__body-item active">
+      <h3>Feature 1</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    </div>
+    <div id="tab-2" class="tab__body-item">
+      <form class="tabs__buttons">
+        <div class="tabs-row">
+          <div class="tabs__buttons-items">
+            <div class="tabs__icon tabs__icon-green">
+              <span>
+                M
+              </span>
+            </div>
+            <div class="tabs__input">
+              <label for="value1">
+                <input type="radio" id="value1" name='input1'>
+                <span class="tabs__input-checkmark"></span>
+                <span class="tabs__input-name">Merriweather project is led by Sorkin Type</span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="tabs-row tabs--horizontal">
+          <div class="tabs__buttons-items">
+            <div class="tabs__icon tabs__icon-rose">
+              <span>
+                R
+              </span>
+            </div>
+            <div class="tabs__input">
+              <label for="value2">
+                <input type="radio" id="value2" name='input1'>
+                <span class="tabs__input-checkmark"></span>
+                <span class="tabs__input-name">Merriweather project is led by Sorkin Type</span>
+              </label>
+            </div>
+          </div>
+          <div class="tabs__buttons-items">
+            <div class="tabs__icon tabs__icon-blue">
+              <span>
+                NS
+              </span>
+            </div>
+            <div class="tabs__input">
+              <label for="value3">
+                <input type="radio" id="value3" name='input1'>
+                <span class="tabs__input-checkmark"></span>
+                <span class="tabs__input-name">Merriweather project is led by Sorkin Type</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
 <script src="js/script.min.js"></script>
 </body>
