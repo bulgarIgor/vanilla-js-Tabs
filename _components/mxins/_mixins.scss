@@ -1,0 +1,14 @@
+@mixin flex-row {
+  display: flex;
+  flex: 1 0 auto;
+  flex-flow: row nowrap;
+  align-items: stretch;
+}
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
