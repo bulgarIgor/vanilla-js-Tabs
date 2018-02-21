@@ -1,0 +1,37 @@
+.tabs__input {
+  position: relative;
+  text-align: center;
+
+  @media only screen and (min-width: $tablet) {
+    text-align: left;
+  }
+
+  label {
+    padding-left: 30px;
+    display: inline-block;
+    position: relative;
+  }
+
+  input[type="radio"] {
+    opacity: 0;
+  }
+
+  input[type="radio"],
+  .tabs__input-checkmark {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    margin: 0;
+  }
+
+  .tabs__input-checkmark {
+    background-color: gray;
+    border-radius: 100%;
+  }
+
+  input:checked ~ span {
+    opacity: .5;
+  }
+}
