@@ -1,4 +1,4 @@
-.tabs__container {
+.tabs {
   margin: 20px;
 
   @media only screen and (min-width: $tablet) {
@@ -38,14 +38,14 @@
   }
 }
 
-.tab__body {
+.tabs__content {
   width: 100%;
   border: 4px solid $gray;
   padding: 20px;
   border-radius: 10px;
   text-align: left;
 
-  > .tab__body-item {
+  > .tabs__content-item {
     display: none;
 
     &.active {
@@ -63,7 +63,7 @@
   }
 }
 
-.tabs__container--inner {
+.tabs__inner {
   padding-bottom: 30px;
   text-align: center;
 
@@ -75,7 +75,7 @@
   }
 }
 
-.tabs--title {
+.tabs__title {
   @media only screen and (max-width: $tablet) {
     margin-bottom: 30px;
   }
