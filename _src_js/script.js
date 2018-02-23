@@ -11,7 +11,7 @@ window.addEventListener("load", function() {
 
     clickTab.preventDefault();
 
-    var myContentPanes = document.querySelectorAll(".tab__body-item");
+    var myContentPanes = document.querySelectorAll(".tabs__content-item");
 
     for (i = 0; i < myContentPanes.length; i++) {
       myContentPanes[i].classList.remove("active");
