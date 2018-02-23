@@ -1,6 +1,7 @@
 var gulp = require('gulp'),
   sass = require('gulp-sass'),
   maps = require('gulp-sourcemaps'),
+  twig = require('gulp-twig'),
   browserSync = require('browser-sync'),
   reload = browserSync.reload,
   concat = require('gulp-concat'),
@@ -8,8 +9,6 @@ var gulp = require('gulp'),
   rename = require('gulp-rename'),
   cache = require('gulp-cache'),
   jshint = require('gulp-jshint');
-
-gulp.task('default', ['watch']);
 
 gulp.task('browser-sync', function() {
   browserSync({
@@ -52,8 +51,24 @@ gulp.task('sass', function() {
     .pipe(reload({stream: true}));
 });
 
-gulp.task('watch', [ 'browser-sync', 'minify-script', 'main-script'] , function() {
+gulp.task('html', function(){
+  gulp.src(['../twig/*.twig'])
+    .pipe(twig({
+      getIncludeId: function(filePath) {
+        return path.relative('../twig', filePath);
+      }
+    }))
+    .pipe(rename({
+      extname: '.html'
+    }))
+    .pipe(gulp.dest('../'));
+});
+
+gulp.task('watch', [ 'browser-sync', 'minify-script', 'main-script', 'html'] , function() {
+  gulp.watch(['../twig/*.twig', '../twig/**/*.twig'], ['html']);
   gulp.watch('../_src_js/*.js', ['jshint']).on('change', browserSync.reload);
   gulp.watch('../_components/**/*.scss', ['sass']);
   gulp.watch("../*.html").on('change', browserSync.reload);
 });
+
+gulp.task('default', ['html', 'watch']);
